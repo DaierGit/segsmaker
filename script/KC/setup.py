@@ -325,10 +325,6 @@ def webui_installation(U, W):
     V = M / 'vae' if U == 'ComfyUI' else M / 'VAE'
 
     webui_req(U, W, M)
-
-    for i in extras: download(i)
-    SyS(f"unzip -qo {W / 'embeddingsXL.zip'} -d {E} && rm {W / 'embeddingsXL.zip'}")
-
     if U != 'SwarmUI': webui_extension(U, W, M)
 
 def webui_selection(ui):
