@@ -314,11 +314,6 @@ def webui_extension(U, W, M):
         clone(str(W / 'asd/custom_nodes.txt'))
         print()
 
-        for faces in [
-            f'https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth {M}/facerestore_models',
-            f'https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth {M}/facerestore_models'
-        ]: download(faces)
-
     else:
         say('<br><b>【{red} Installing Extensions{d} 】{red}</b>')
         clone(str(W / 'asd/extension.txt'))
@@ -330,11 +325,6 @@ def webui_installation(U, W):
     V = M / 'vae' if U == 'ComfyUI' else M / 'VAE'
 
     webui_req(U, W, M)
-
-    extras = [
-        f'https://huggingface.co/gutris1/webui/resolve/main/misc/embeddingsXL.zip {W}',
-        f'https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl.vae.safetensors {V} sdxl_vae.safetensors'
-    ]
 
     for i in extras: download(i)
     SyS(f"unzip -qo {W / 'embeddingsXL.zip'} -d {E} && rm {W / 'embeddingsXL.zip'}")
